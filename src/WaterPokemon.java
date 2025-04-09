@@ -1,31 +1,30 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class WaterPokemon extends Pokemon {
-    private final List<String> attacks = new ArrayList<>();
-
+public class WaterPokemon extends ElementalPokemon {
     public WaterPokemon(String name, int level, int hp, String food, String sound) {
         super(name, level, hp, food, sound);
-        setType("Water");
+        setType("water");
+    }
+
+    @Override
+    protected List<String> getDefaultAttacks() {
+        return Arrays.asList("surf", "hydroPump", "hydroCanon", "rainDance");
     }
 
     public void surf(Pokemon pokemon, Pokemon gymPokemon) {
-        attacks.add("surf");
+        performAttack(pokemon, gymPokemon, 20, "surf", "fire");
     }
 
     public void hydroPump(Pokemon pokemon, Pokemon gymPokemon) {
-        attacks.add("hydroPump");
+        performAttack(pokemon, gymPokemon, 35, "hydroPump", "fire");
     }
 
     public void hydroCanon(Pokemon pokemon, Pokemon gymPokemon) {
-        attacks.add("hydroCanon");
+        performAttack(pokemon, gymPokemon, 15, "hydroCanon", "fire");
     }
 
     public void rainDance(Pokemon pokemon, Pokemon gymPokemon) {
-        attacks.add("rainDance");
-    }
-
-    public List<String> getAttacks() {
-        return attacks;
+        performAttack(pokemon, gymPokemon, 32, "rainDance", "fire");
     }
 }
