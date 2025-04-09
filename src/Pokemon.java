@@ -35,6 +35,10 @@ public abstract class Pokemon {
         return sound;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public String getType() {
         return type;
     }
